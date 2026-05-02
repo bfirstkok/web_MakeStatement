@@ -1,8 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('firebase/auth', () => ({
+  onAuthStateChanged: (_auth, callback) => {
+    callback(null);
+    return () => {};
+  },
+}));
+
+jest.mock('./firebase', () => ({
+  auth: {},
+  loginWithGoogle: jest.fn(),
+  logout: jest.fn(),
+}));
+
+test('renders login screen when not authenticated', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(await screen.findByText('เข้าสู่ระบบด้วย Google')).toBeInTheDocument();
 });
