@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "project-f48d5c78-8f0b-426e-8a1"
+  },
+  "targets": {
+    "project-f48d5c78-8f0b-426e-8a1": {
+      "hosting": {
+        "omynocashflow": [
+          "omynocashflow"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
